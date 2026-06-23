@@ -48,6 +48,16 @@ Never animate: form submission awaiting response, destructive confirmations, rep
 - Push back when a spec is unclear, incomplete, or unworkable, or when a decision or an idea is not suitable to the project's goals and constraints. Ask for clarification, propose a solution, and get confirmation before coding, do not agree blindly.
 - "Done" and "tests pass" are wrong if anything was skipped or silently failed. Surface uncertainty, don't hide it.
 
+## Accessibility
+
+- Icon-only buttons need `aria-label`
+- Form controls need `<label>` or `aria-label`
+- Interactive elements need keyboard handlers (`onKeyDown` / `onKeyUp`)
+- `<button>` for actions, `<a>`/`<Link>` for navigation (not `<div onClick>`)
+- Images need `alt` (or `alt=""` if decorative)
+- Decorative icons need `aria-hidden="true"`
+- Async updates (toasts, validation) need `aria-live="polite"`
+
 ## Session Wrap-up
 
 Run `/wrap-up` skill.
