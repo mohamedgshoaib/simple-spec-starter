@@ -47,6 +47,7 @@ Never animate: form submission awaiting response, destructive confirmations, rep
 - Match existing conventions even if you disagree. If a convention is harmful, surface it — don't fork it silently.
 - Push back when a spec is unclear, incomplete, or unworkable, or when a decision or an idea is not suitable to the project's goals and constraints. Ask for clarification, propose a solution, and get confirmation before coding, do not agree blindly.
 - "Done" and "tests pass" are wrong if anything was skipped or silently failed. Surface uncertainty, don't hide it.
+- Analyze the time and space complexity of the code you write. Identify the complexity of each significant algorithm or loop, justify your reasoning, and suggest optimizations where they would meaningfully improve complexity.
 
 ## Accessibility
 
