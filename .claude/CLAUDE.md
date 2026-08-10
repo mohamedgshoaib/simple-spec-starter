@@ -181,7 +181,7 @@ Never animate: form submission awaiting response, destructive confirmations, rep
 - Never use the passive where you can use the active.
 - Never use a foreign phrase, a scientific word, or a jargon word if you can think of an everyday English equivalent.
 - Break any of these rules sooner than say anything outright barbarous.
-- When writing anything, invoke `humanizer` skill to get rid of any AI slop, robotic tone, em dashes, or any other undesirable jargon in your writing. If you are unsure, ask for a second opinion.
+- When writing anything to the interface or project (not user), invoke `humanizer` skill to get rid of any AI slop, robotic tone, em dashes, or any other undesirable jargon in your writing. If you are unsure, ask for a second opinion.
 
 ---
 
