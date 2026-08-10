@@ -10,8 +10,8 @@ This starter gives you a small structure:
 
 - `spec/identity/` for durable product truth
 - `spec/sessions/` for short lived working state
-- `.agents/skills/` for local skills you want agents to use
-- `AGENTS.md` and `CLAUDE.md` for repo behavior rules
+- `.agents/skills/` and `.claude/skills/` for local skills you want agents to use
+- `AGENTS.md` and `.claude/CLAUDE.md` for repo behavior rules
 
 That is it. No heavy framework. No giant planning system. No fake ceremony.
 
@@ -23,7 +23,8 @@ Then do this:
 
 1. Fill `spec/identity/project-dna.md`
 2. Fill `spec/identity/brand-voice.md`
-3. Keep `AGENTS.md` and `CLAUDE.md` at the repo root
+3. Fill `spec/identity/TONE.md`
+3. Keep `AGENTS.md` at the repo root and `.claude/CLAUDE.md` at `.claude` directory root
 4. Start `spec/sessions/session-01.md` from the template when real work begins
 5. Keep `HANDOFF.md` empty or set to `No active handoff.` until a handoff is actually needed
 
@@ -63,16 +64,18 @@ Use `handoff` when work is paused and another session will pick it up. Use `wrap
 
 ## why these starter skills exist
 
-- `grill-me` sharpens a feature or design before code starts.
 - `codebase-design` gives a shared vocabulary for seams, interfaces, depth, and testability.
-- `improve-codebase-architecture` finds architectural friction and turns it into concrete refactor candidates.
-- `handoff` preserves only the next agent's continuation context.
-- `wrap-up` keeps session logs factual, compact, and usable.
+- `commit-message` writes a commit message that is factual, compact, and non-persuasive.
 - `deslop` cleans AI-shaped code that does not match the branch or codebase.
+- `grilling` sharpens a feature or design before code starts.
+- `handoff` preserves only the next agent's continuation context.
 - `humanizer` cleans AI-shaped writing so docs and copy sound normal.
+- `improve-codebase-architecture` finds architectural friction and turns it into concrete refactor candidates.
 - `no-use-effect` enforces a stricter React posture and replaces lazy effect usage with better patterns.
 - `typescript-expert` is the fallback specialist for hard TypeScript and JavaScript problems.
 - `vercel-react-best-practices` keeps React and Next.js work aligned with strong performance defaults.
+- `wrap-up` keeps session logs factual, compact, and usable.
+- `write-project-readme` writes a project README that is factual, accurate, and reflects the project's current state.
 
 ## when to use this
 
