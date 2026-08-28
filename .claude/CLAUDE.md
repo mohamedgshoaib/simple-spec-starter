@@ -1,23 +1,15 @@
 <!-- BEGIN:nextjs-agent-rules -->
+
 # This is NOT the Next.js you know
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
 <!-- END:nextjs-agent-rules -->
 
 
-# Ultracite Code Standards
-
-This project uses **Ultracite**, a zero-config preset that enforces strict code quality standards through automated formatting and linting.
-
-## Quick Reference
-
-- **Format code**: `pnpm dlx ultracite fix`
-- **Check for issues**: `pnpm dlx ultracite check`
-- **Diagnose setup**: `pnpm dlx ultracite doctor`
-
-Biome (the underlying engine) provides robust linting and formatting. Most issues are automatically fixable.
-
----
+# Code Standards
 
 ## Core Principles
 
@@ -114,11 +106,11 @@ Write code that is **accessible, performant, type-safe, and maintainable**. Focu
 - Don't use `.only` or `.skip` in committed code
 - Keep test suites reasonably flat - avoid excessive `describe` nesting
 
-## When Biome Can't Help
+## When linters Can't Help
 
-Biome's linter will catch most issues automatically. Focus your attention on:
+Linter will catch most issues automatically. Focus your attention on:
 
-1. **Business logic correctness** - Biome can't validate your algorithms
+1. **Business logic correctness** - Linters can't validate your algorithms
 2. **Meaningful naming** - Use descriptive names for functions, variables, and types
 3. **Architecture decisions** - Component structure, data flow, and API design
 4. **Edge cases** - Handle boundary conditions and error states
@@ -127,7 +119,7 @@ Biome's linter will catch most issues automatically. Focus your attention on:
 
 ---
 
-Most formatting and common issues are automatically fixed by Biome. Run `pnpm dlx ultracite fix` before committing to ensure compliance.
+Most formatting and common issues are automatically fixed by running the linter script from `package.json`. Run it before committing to ensure compliance.
 
 
 # Session Start Sequence
@@ -181,7 +173,7 @@ Never animate: form submission awaiting response, destructive confirmations, rep
 - Never use the passive where you can use the active.
 - Never use a foreign phrase, a scientific word, or a jargon word if you can think of an everyday English equivalent.
 - Break any of these rules sooner than say anything outright barbarous.
-- When writing anything to the interface or project (not user), invoke `humanizer` skill to get rid of any AI slop, robotic tone, em dashes, or any other undesirable jargon in your writing. If you are unsure, ask for a second opinion.
+- When writing anything to the interface or project (not user), invoke `unslop` skill to get rid of any AI slop, robotic tone, em dashes, or any other undesirable jargon in your writing. If you are unsure, ask for a second opinion.
 
 ---
 
