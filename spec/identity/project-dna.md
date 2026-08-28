@@ -2,70 +2,74 @@
 
 ## [Project Name]
 
-[One paragraph: what this product is, who it serves, and why it exists.]
+[One paragraph stating what the product is, who uses it, and why it exists.]
 
-### Core Purpose
+### Core purpose
 
-[What the system does for external users.]
-[What the system does for internal users.]
+[What the system does for people who use it.]
+[What the system does for the team that runs or supports it.]
 
-This project is not meant to become:
+This project must not become:
 
 - [Anti-pattern 1]
 - [Anti-pattern 2]
 
-> **The Central Mechanism** — [One sentence: the core product truth that guides every decision.]
+> **The central mechanism:** [One sentence stating the product truth that guides every decision.]
 
-### Product Model
+### Product model
 
 **What it is:**
 
 - [Capability 1]
 - [Capability 2]
 
-**Core truths that guide every decision:**
+**Core truths:**
 
 - [Truth 1]
 - [Truth 2]
 
-**Signature mechanics:**
+**Key mechanics:**
 
 - [Mechanic 1]
 - [Mechanic 2]
 
-### Target Audience
+### Target audience
 
-#### External
+#### External users
 
 - [Segment 1]
 - [Segment 2]
 
-**Profile:** [Age range, device preference, technical comfort, intent, what they need to feel confident.]
+**Profile:** [Age range, device preference, technical comfort, intent, and what they need to act with confidence.]
 
-#### Internal
+#### Internal users
 
 - [Role 1]
 - [Role 2]
 
-**Profile:** [Technical comfort, workflow expectations, screen/device context.]
+**Profile:** [Technical comfort, workflow expectations, and screen or device context.]
 
-### Non-Negotiable Principles
+### Non-negotiable principles
+
+*Use this list for rules that protect trust or a product promise. Do not put design or technical preferences here. If breaking a rule would not hurt credibility, put it in Architecture and constraints.*
 
 1. No [anti-pattern with consequence].
 2. No [anti-pattern with consequence].
 
-### Product Differentiators
+### Product differentiators
 
 | Area   | Common Pattern   | [Project Name]   |
 | ------ | ---------------- | ---------------- |
 | [Area] | [What others do] | [What this does] |
 
-### Architecture & Constraints
+### Architecture and constraints
+
+*Use this section for limits that define what the system is or can do. Put trust and product-promise rules in Non-negotiable principles. Put limits that would change the product's category or purpose here.*
 
 - [Constraint 1]
 - [Constraint 2]
 
-### Technology Stack
+### Technology stack
 
 **Core**
 
@@ -73,16 +77,16 @@ This project is not meant to become:
 - [Language]
 - [Styling]
 
-**Backend & Data**
+**Backend and data**
 
 - [Database + URL if applicable]
 - [Auth]
 
-**UI & Components**
+**UI and components**
 
 - [Component library]
 
-**Interactions & State**
+**Interactions and state**
 
 - [State/routing tools]
 
@@ -90,9 +94,9 @@ This project is not meant to become:
 
 - [Linter, formatter]
 
-### Working Posture For Agents
+### How agents should work
 
-Agents working in this repository should think in this order:
+Agents working in this repository should answer these questions in order:
 
 1. What is the product truth?
 2. Who owns this visible surface?
@@ -100,4 +104,4 @@ Agents working in this repository should think in this order:
 4. [Project-specific question 4]
 5. Is the system becoming clearer or more mixed?
 
-Agents should behave as system-design partners first and implementation agents second.
+Agents should help define the system before they implement it.

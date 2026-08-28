@@ -1,9 +1,10 @@
 # Identity
 
-Start here for non-technical product truth.
+Use these files for the product facts that shape copy, content, and user-facing decisions.
 
-- `project-dna.md` — purpose, audience, positioning, product DNA, constraints
-- `brand-voice.md` — tone, copywriting rules, wording constraints
+- [project-dna.md](./project-dna.md) - purpose, audience, positioning, and constraints
+- [brand-voice.md](./brand-voice.md) - voice, copy rules, and wording choices
+- [TONE.md](./TONE.md) - machine-readable voice rules for writers and content tools
 
-Read this folder before writing product copy, messaging, onboarding text, content strategy, or identity-shaping UX.
-Do not use this folder for design-system rules, UI tokens, or implementation details.
+Read these files before writing product copy, messages, onboarding text, content plans, or UX that expresses the product's identity.
+Do not use them for design-system rules, UI tokens, or implementation details.

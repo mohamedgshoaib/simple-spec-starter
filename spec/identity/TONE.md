@@ -1,25 +1,26 @@
-# TONE.md — Brand Voice Contract Template
+# TONE.md - Brand voice contract template
 
-> Machine-readable brand voice contract for writers, agents, and downstream content skills. Preserve section order when filling in or updating this document.
+> Machine-readable brand voice contract for writers, agents, and content tools. Preserve the section order when you fill in or update this document.
 
 <!--
-HOW TO FILL THIS TEMPLATE (delete this block once the doc is filled)
+HOW TO FILL THIS TEMPLATE (delete this block after the document is filled)
 
-Required inputs: brand name, category/product type, one-line mission, primary + secondary
-audience, market, language, reading-age target, channels in scope, primary content goal,
-risk tolerance (conservative / moderate / distinctive / bold), and any regulatory or
-claim constraints. Optional: 3-10 existing copy samples or competitor copy to react against.
+Required inputs: brand name, category or product type, one-line mission, primary and
+secondary audience, market, language, reading-age target, channels in scope, primary
+content goal, risk tolerance (conservative, moderate, distinctive, or bold), and any
+regulatory or claim constraints. Optional inputs: 3-10 existing copy samples or
+competitor copy to assess.
 
-Fill order: Context → Voice Attributes (3-5, derived from category + risk tolerance +
-audience) → Archetype → NN/g positioning → Tone Modulation Matrix (trim rows/columns to
-actual channels) → Lexicon → Mechanics → Inclusive Language → Channel-Specific Guidance
-(only channels in scope) → Global Do's/Don'ts (roll up from Voice Attributes) →
-Examples Library (write last, once attributes are locked) → Provenance.
+Fill order: Context, Voice attributes, Archetype, NN/g positioning, Tone modulation
+matrix, Lexicon, Mechanics, Inclusive language, Channel-specific guidance, Global do's
+and don'ts, Examples library, and Provenance. Derive 3-5 voice attributes from the
+category, risk tolerance, and audience. Trim the matrix to the channels and situations
+that apply. Write the examples after the other sections are fixed.
 
-Rules: every "Sounds like" / "Does not sound like" pair must be invented copy specific
-to this brand — never generic filler. Don't invent claims (privacy, security,
-performance, AI capability, availability) beyond what Context states. Keep every
-section as short as it can be; don't restate earlier sections.
+Rules: write every "Sounds like" and "Does not sound like" pair as original copy for
+this brand. Do not use generic filler. Do not invent claims about privacy, security,
+performance, AI capability, or availability beyond the Context section. Keep each
+section short. Do not repeat rules stated elsewhere.
 -->
 
 ---
@@ -31,25 +32,25 @@ section as short as it can be; don't restate earlier sections.
 - **Mission (1 line):** [What the product does for the user, in one sentence]
 - **Primary audience:** [Who this is for, described by need/behavior, not demographics]
 - **Secondary audiences:** [Other groups the voice must still work for]
-- **Market:** [Global / regional — name regions if not global]
+- **Market:** [Global or regional. Name regions if not global.]
 - **Language:** [Language(s) and spelling convention, e.g. "English only, en-US"]
-- **Reading-age target:** [e.g. "Adult general" — note where technical detail is allowed]
-- **Channels in scope:** [List every surface this contract governs — website, app UI, email, etc.]
+- **Reading-age target:** [e.g. "Adult general." Note where technical detail is allowed.]
+- **Channels in scope:** [List every surface this contract governs, such as website, app UI, and email.]
 - **Primary content goal:** [The one thing every piece of copy should help a reader understand or do]
-- **Risk tolerance:** [Conservative / moderate / distinctive / bold — with a short qualifier, e.g. "distinctive but not quirky"]
-- **Regulatory constraints:** [Claim categories that must stay unsupported/unmade — privacy, medical, financial, performance, AI, etc.]
+- **Risk tolerance:** [Conservative, moderate, distinctive, or bold. Add a short qualifier, such as "distinctive but not quirky."]
+- **Regulatory constraints:** [Claim categories that must stay unsupported or unmade, such as privacy, medical, financial, performance, or AI claims.]
 
 ---
 
-## Voice Attributes
+## Voice attributes
 
 <!--
-Pick 3-5 attributes that resolve a real tension for this brand and category (e.g.
+Pick 3-5 attributes that resolve a real tension for this brand and category, such as
 "technical but not cold," "confident but not arrogant") rather than generic adjectives
-like "friendly" or "professional." Repeat the block below once per attribute.
+like "friendly" or "professional." Repeat the block below for each attribute.
 -->
 
-### 1. [Attribute — two contrasting words, e.g. "Precise, never verbose"]
+### 1. [Attribute - two contrasting words, e.g. "Precise, never verbose"]
 
 **Definition:** [One sentence defining what the brand does and does not do]
 
@@ -69,7 +70,7 @@ like "friendly" or "professional." Repeat the block below once per attribute.
 - [Concrete anti-pattern]
 - [Concrete anti-pattern]
 
-<!-- Repeat for attributes 2–5. -->
+<!-- Repeat for attributes 2-5. -->
 
 ---
 
@@ -79,12 +80,12 @@ like "friendly" or "professional." Repeat the block below once per attribute.
 - **Secondary:** [Optional second archetype]
 - **Rationale:** [1-2 sentences on why these fit, and what the brand deliberately is not]
 
-<!-- Reference set (Jungian, via Mark & Pearson): Innocent, Explorer, Sage, Hero, Outlaw,
+<!-- Reference set: Innocent, Explorer, Sage, Hero, Outlaw,
 Magician, Regular Guy/Gal, Lover, Jester, Caregiver, Ruler, Creator. -->
 
 ---
 
-## NN/g 4 Dimensions Positioning
+## NN/g 4 dimensions positioning
 
 | Dimension | Position | Rationale |
 | --- | --- | --- |
@@ -93,15 +94,15 @@ Magician, Regular Guy/Gal, Lover, Jester, Caregiver, Ruler, Creator. -->
 | Respectful <-> Irreverent | [Pick one pole] | [1 sentence] |
 | Enthusiastic <-> Matter-of-fact | [Pick one pole] | [1 sentence] |
 
-<!-- Positions should be a clear pole, not a hedge — "Serious" with "rare dry wit
+<!-- Positions should use a clear pole, not a hedge. "Serious" with "rare dry wit
 acceptable" is fine; "somewhere in the middle" is not. -->
 
 ---
 
-## Tone Modulation Matrix
+## Tone modulation matrix
 
 <!-- Trim rows to moments that actually recur in this product. Trim columns to the
-channels listed under Context — delete unused channel columns entirely rather than
+channels listed under Context. Delete unused channel columns rather than
 leaving them blank. -->
 
 | Situation | [Channel 1] | [Channel 2] | [Channel 3] | [Channel 4] |
@@ -117,9 +118,10 @@ leaving them blank. -->
 | Destructive action | | | | |
 | Account or billing | | | | |
 
-Use "—" where a situation doesn't apply to a channel. Each filled cell should be 2-3 words (e.g. "Calm, declarative"), not a sentence.
+Use "N/A" where a situation does not apply to a channel. Each filled cell should be 2-3
+words, such as "Calm, declarative," not a sentence.
 
-**Prohibited in every situation:** [e.g. hype, urgency without cause, corporate formality, condescension, excessive cheer — edit for this brand]
+**Prohibited in every situation:** [e.g. hype, urgency without cause, corporate formality, condescension, excessive cheer. Edit this list for the brand.]
 
 ---
 
@@ -139,7 +141,7 @@ that a generic synonym would blur. -->
 
 ### Banned terms
 
-<!-- Starter blocklist of overused corporate language — keep what still applies, extend
+<!-- Starter blocklist of overused corporate language. Keep what applies, extend
 with brand-specific bans, remove anything that's actually needed for this category. -->
 
 leverage, utilize, streamline, optimize, empower, unlock, transform, revolutionize, game-changing, next-level, seamless, robust, comprehensive, solution, platform, stakeholders, "allows you to", exciting, vibrant, groundbreaking, innovative, delve, tapestry, and landscape when used abstractly.
@@ -176,23 +178,23 @@ Use intentionally, not decoratively: [8-12 words the brand should reach for on p
 | Voice | [Active by default? When is passive acceptable?] |
 | Case | [Sentence case / title case, and exceptions] |
 | Exclamation marks | [Avoid / reserve for what] |
-| Em dashes | [Avoid / allowed — and alternative punctuation] |
+| Em dashes | [Avoid. State the preferred alternative punctuation.] |
 | Ellipses | [Rare / never / when] |
 | Numerals | [Figures vs. spelled out, and where] |
 | Emoji | [Where allowed, if anywhere] |
 
 ---
 
-## Inclusive Language
+## Inclusive language
 
 - Use gender-neutral language by default.
 - Avoid ability metaphors (e.g. "blind to," "falls on deaf ears").
 - Do not assume age, geography, device skill, or [category-specific access assumption].
-- [Any category-specific inclusivity rule — e.g. avoid "easy/simple/just" if it undersells real complexity, or avoid financial-status assumptions.]
+- [Any category-specific inclusivity rule. For example, avoid "easy/simple/just" if it undersells real complexity, or avoid financial-status assumptions.]
 
 ---
 
-## Channel-Specific Guidance
+## Channel-specific guidance
 
 <!-- Include only the channels listed under Context; delete the rest of this section's
 subheadings rather than leaving empty ones. -->
@@ -217,7 +219,7 @@ subheadings rather than leaving empty ones. -->
 
 ---
 
-## Global Do's and Don'ts
+## Global do's and don'ts
 
 ### Do
 
@@ -229,7 +231,7 @@ subheadings rather than leaving empty ones. -->
 
 ---
 
-## Examples Library
+## Examples library
 
 ### Before / After
 
@@ -245,7 +247,7 @@ product's key moments. "Before" = generic/corporate/hype version of the same mes
 
 ### Full-artefact samples (optional)
 
-> [One or two short standalone lines of copy that fully embody the voice — a tagline, a hero line, or a full microcopy moment]
+> [One or two short standalone lines of copy that fully embody the voice, such as a tagline, hero line, or microcopy moment.]
 
 ---
 
@@ -253,4 +255,4 @@ product's key moments. "Before" = generic/corporate/hype version of the same mes
 
 - [Source of product/brand input, and date]
 - [Source of brand voice context, and date]
-- [Links to related docs — feature contract, design system, style guide, etc.]
+- [Links to related docs, such as the feature contract, design system, or style guide.]
