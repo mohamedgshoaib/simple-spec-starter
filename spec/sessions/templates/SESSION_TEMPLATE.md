@@ -7,7 +7,7 @@ Write facts only. No plans, no advice, no narration.
 
 ---
 
-## Status at Start
+## Status at start
 
 - **Sprint goal:** [one line only]
 - **Last blocker:** [one line or `None`]
@@ -17,30 +17,30 @@ Write facts only. No plans, no advice, no narration.
 
 ## Completed
 
-- [Finished and verified only. One line per item. No in-progress work.]
+- [Finished and verified items only. Use one line per item. Do not include work in progress.]
 
 ---
 
 ## Decisions
 
-- [Locked choice only. One line. Irreversible or architectural only. No proposals.]
+- [Record locked choices only. Use one line per choice. Include only irreversible or architectural choices. Do not include proposals.]
 
 ---
 
 ## Blockers
 
-1. [Active blocker — owner] ← strike when resolved. `None` if clean. Do not log minor annoyances or TODOs.
+1. [Active blocker and owner. Strike the item when resolved. Use `None` if there are no blockers. Do not log minor annoyances or TODOs.]
 
 ---
 
-## Session End
+## Session end
 
 - [Leave as `Open` while the session is active.]
-- [When the session is complete, replace with an explicit end marker such as `Session ended` or `Today's work is done`.]
+- [When the session is complete, replace this with an end marker such as `Session ended` or `Today's work is done`.]
 
 ---
 
-## Do Not Include
+## Do not include
 
 - Brainstorming
 - Implementation plans

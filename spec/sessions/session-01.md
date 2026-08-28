@@ -3,7 +3,7 @@
 Write facts only. No plans, no advice, no narration.
 
 **Filename:** `session-01.md`
-**Session Status:** Open
+**Session Status:** Ended
 
 ---
 
@@ -19,18 +19,15 @@ Write facts only. No plans, no advice, no narration.
 
 - Added `spec/identity/` templates for project DNA and brand voice.
 - Added `spec/sessions/` templates and `HANDOFF.md` placeholder for session continuity.
-- Added repo root agent instruction files `AGENTS.md` and `CLAUDE.md`.
+- Added repo root agent instruction files `AGENTS.md` and `.claude/CLAUDE.md`.
 - Added starter skill packs under `.agents/skills/` and `.claude/skills/`.
 - Added `README.md` with usage guidance, workflow explanation, and starter skill rationale.
-- Committed scaffolding, repo instructions, starter skills, and README in separate relevant commits.
 
 ---
 
 ## Decisions
 
 - Repository uses separate lanes for durable product truth, active session truth, and agent behavior rules.
-- `HANDOFF.md` uses `No active handoff.` when no continuation note is active.
-- Initial repository history is split into multiple commits by relevance instead of one bulk commit.
 
 ---
 
@@ -42,7 +39,7 @@ Write facts only. No plans, no advice, no narration.
 
 ## Session End
 
-- Open
+- Session ended
 
 ---
 
@@ -51,5 +48,5 @@ Write facts only. No plans, no advice, no narration.
 - Brainstorming
 - Implementation plans
 - Transcript-style recap
-- Repo-wide rules already covered in `AGENTS.md` or `CLAUDE.md`
+- Repo-wide rules already covered in `AGENTS.md` or `.claude/CLAUDE.md`
 - Motivational or steering language
