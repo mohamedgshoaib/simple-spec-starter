@@ -69,10 +69,10 @@ Use `handoff` when work is paused and another session will pick it up. Use `wrap
 - `deslop` cleans AI-shaped code that does not match the branch or codebase.
 - `grilling` sharpens a feature or design before code starts.
 - `handoff` preserves only the next agent's continuation context.
-- `humanizer` cleans AI-shaped writing so docs and copy sound normal.
 - `improve-codebase-architecture` finds architectural friction and turns it into concrete refactor candidates.
 - `no-use-effect` enforces a stricter React posture and replaces lazy effect usage with better patterns.
 - `typescript-expert` is the fallback specialist for hard TypeScript and JavaScript problems.
+- `unslop` cleans AI-shaped writing so text sounds normal.
 - `vercel-react-best-practices` keeps React and Next.js work aligned with strong performance defaults.
 - `wrap-up` keeps session logs factual, compact, and usable.
 - `write-project-readme` writes a project README that is factual, accurate, and reflects the project's current state.
