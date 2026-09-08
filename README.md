@@ -14,41 +14,37 @@ The required part of this repo is the `spec/sessions/` directory.
 - `handoff` is a skill for writing the handoff file.
 - `wrap-up` is a skill for recording verified end-of-session facts.
 - `grilling` is a skill for testing a plan before new feature work starts.
-- `unslop` is a skill for cleaning up project-facing writing.
+- `unslop` is a skill for interface copy, documentation, README files, Markdown, and other saved content. It does not apply to chat replies unless you invoke it.
 
 These files and skills define the core workflow. The other included skills are project-specific additions.
 
-## Choose your setup
+## Start here
 
-### Workflow only
+For a new project, tell your agent:
 
-Use this setup if you want the session and agent workflow without the identity layer.
+> Start this spec for a new project: [one sentence about what you want to build]. Help me define it before writing code.
 
-Keep `spec/sessions/`, the agent instruction files, and the `handoff`, `wrap-up`, `grilling`, and `unslop` skills. You do not need `spec/identity/`. Do not copy it, or remove it after copying the starter.
+For an existing codebase, tell your agent:
 
-Nothing in the sessions workflow depends on the identity files.
+> Start the spec workflow for this existing codebase. Learn only what you need about the current project, then begin the first session without changing application code.
 
-### Workflow with identity
+That is the full setup prompt. The agent instructions own the rest of the startup flow.
 
-Use `spec/identity/` when you are:
+## Identity files
 
-- building a website or product from scratch and need to define its identity
-- working on an existing website and need to document or reshape its identity
+`spec/identity/` holds product facts, audience details, positioning, brand voice, and wording rules. Keep it when the project needs that context. Remove it when it does not.
 
-The identity files hold product facts, audience details, positioning, brand voice, and wording rules.
+Agents will not ask whether to use identity. If the directory exists, they read it. If it does not exist, they continue without mentioning it. Unfilled template text is never treated as a project fact.
 
-They are not a design system and do not replace implementation rules.
+Identity files are not design-system or implementation rules.
 
-If `spec/identity/` exists, read `spec/identity/README.md` first. Then read the identity files that apply to the work.
+## Technical context
 
-## How to use it
+`spec/technical-context.md` is a short project fact file that agents read at the start of each session. The agent fills it during the first startup and updates it only when one of its facts changes.
 
-1. Copy the starter files into the root of an existing project or a new project.
-2. Keep the core session workflow.
-3. Keep `spec/identity/` only if the project needs product or brand identity guidance.
-4. Keep the specialist skills that match the project and remove the rest.
-5. Start a numbered session when real work begins.
-6. Use `handoff` when work pauses and `wrap-up` when the session ends.
+It records one project sentence, whether code already exists, the main stack names, the main code paths, normal checks, and constraints. It does not copy dependency lists, exact versions, every project script, directory trees, or framework documentation.
+
+Project facts stay in `spec/technical-context.md`. Agents do not copy them into `AGENTS.md` or `.claude/CLAUDE.md`.
 
 ## Reading order
 
@@ -58,11 +54,12 @@ At the start of a session, an agent should read these files in order:
 2. `spec/sessions/README.md`: the sessions routing file.
 3. The highest-numbered `spec/sessions/session-XX.md` file: the current numbered session file. Treat it as active unless it contains an explicit end marker such as `Session ended` or `Today's work is done`.
 4. `spec/sessions/HANDOFF.md`: the handoff file, if it exists and contains an active handoff.
-5. `spec/identity/README.md`: the identity routing file, if it exists. If it does not exist, continue.
-6. `spec/identity/project-dna.md`: the project identity file, if it exists. If it does not exist, continue.
-7. `spec/identity/brand-voice.md` and `spec/identity/TONE.md`: read each file if it exists when writing product copy or other identity-sensitive content. If a file does not exist, continue without it.
+5. `spec/technical-context.md`: the short technical context file.
+6. `spec/identity/README.md`: the identity routing file, if it exists. If it does not exist, continue without mentioning it.
+7. `spec/identity/project-dna.md`: the project identity file, if it exists. If it does not exist, continue.
+8. `spec/identity/brand-voice.md` and `spec/identity/TONE.md`: read each file if it exists when writing interface copy or other saved content that depends on product identity. If a file does not exist, continue without it.
 
-The session workflow comes first. Identity files add product and brand context when the project needs them.
+The session workflow comes first. Technical context keeps discovery short. Identity files add product and brand context when they exist.
 
 ## Skills are a menu
 

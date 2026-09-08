@@ -1,188 +1,113 @@
-<!-- BEGIN:nextjs-agent-rules -->
+# Agent workflow
 
-# This is NOT the Next.js you know
+## Session start
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+Read these files in order:
 
-This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+1. `spec/sessions/README.md`: the sessions routing file.
+2. The highest-numbered `spec/sessions/session-XX.md` file: the current numbered session file. Treat it as active unless it contains an explicit end marker such as `Session ended` or `Today's work is done`.
+3. `spec/sessions/HANDOFF.md`: read this handoff file if it contains an active handoff.
+4. `spec/technical-context.md`: the short project fact file.
+5. `spec/identity/README.md`: read this identity routing file if it exists.
+6. `spec/identity/project-dna.md`: read this project identity file if it exists.
+7. `spec/identity/brand-voice.md` and `spec/identity/TONE.md`: read each file if it exists when writing interface copy or other saved content that depends on product identity.
 
-<!-- END:nextjs-agent-rules -->
+If no numbered session file exists, create `spec/sessions/session-01.md` from the session template when real work begins.
 
+Do not ask whether to use identity. If `spec/identity/` does not exist, continue without mentioning it. If an identity file still contains template placeholders, treat it as unfilled and do not use those placeholders as project facts.
 
-# Code Standards
+## First startup
 
-## Core Principles
+If `spec/technical-context.md` still contains placeholders, determine which case applies.
 
-Write code that is **accessible, performant, type-safe, and maintainable**. Focus on clarity and explicit intent over brevity.
+For a new project with no application code or project manifest:
 
-### Type Safety & Explicitness
+1. Ask what the user wants to build and which constraints are fixed.
+2. Use the `grilling` skill to settle product, stack, and architecture choices that must be decided before code.
+3. Do not create application code until the user approves those choices.
+4. Fill `spec/technical-context.md` after the stack is approved.
 
-- Use explicit types for function parameters and return values when they enhance clarity
-- Prefer `unknown` over `any` when the type is genuinely unknown
-- Use const assertions (`as const`) for immutable values and literal types
-- Leverage TypeScript's type narrowing instead of type assertions
-- Use meaningful variable names instead of magic numbers - extract constants with descriptive names
+For an existing codebase:
 
-### Modern JavaScript/TypeScript
+1. Read only the root README, project manifests, lockfiles, relevant configuration, top-level source directories, and application entry points.
+2. Fill `spec/technical-context.md` with verified facts.
+3. Do not change application code during startup unless the user asks.
+4. Stop discovery when the six fields in `spec/technical-context.md` are clear.
 
-- Use arrow functions for callbacks and short functions
-- Prefer `for...of` loops over `.forEach()` and indexed `for` loops
-- Use optional chaining (`?.`) and nullish coalescing (`??`) for safer property access
-- Prefer template literals over string concatenation
-- Use destructuring for object and array assignments
-- Use `const` by default, `let` only when reassignment is needed, never `var`
+Do not scan dependency directories, generated files, build output, or version-control history during startup. Update `spec/technical-context.md` when one of its facts changes. Do not copy project facts into `AGENTS.md` or `.claude/CLAUDE.md`.
 
-### Async & Promises
+## Current documentation
 
-- Always `await` promises in async functions - don't forget to use the return value
-- Use `async/await` syntax instead of promise chains for better readability
-- Handle errors appropriately in async code with try-catch blocks
-- Don't use async functions as Promise executors
+Before writing or changing code that depends on a programming language, runtime, framework, library, SDK, API, CLI, or cloud service:
 
-### React & JSX
+1. Confirm the installed version from project files, or the intended version from the user's approved plan.
+2. Fetch current authoritative documentation for that version and the exact topic involved. Use Context7 when available; otherwise use the official documentation source.
+3. For an existing codebase, match the installed version. For a new project, use the approved latest stable version.
+4. Do not rely on model memory for API names, configuration, defaults, deprecations, or version behavior.
+5. If current matching documentation cannot be reached, report that before writing code that depends on it.
 
-- Use function components over class components
-- Call hooks at the top level only, never conditionally
-- Specify all dependencies in hook dependency arrays correctly
-- Use the `key` prop for elements in iterables (prefer unique IDs over array indices)
-- Nest children between opening and closing tags instead of passing as props
-- Don't define components inside other components
-- Use semantic HTML and ARIA attributes for accessibility:
-  - Provide meaningful alt text for images
-  - Use proper heading hierarchy
-  - Add labels for form inputs
-  - Include keyboard event handlers alongside mouse events
-  - Use semantic elements (`<button>`, `<nav>`, etc.) instead of divs with roles
+Keep documentation lookup narrow. Do not fetch external documentation for local logic, writing, or refactoring that does not depend on an external contract.
 
-### Error Handling & Debugging
+## Engineering rules
 
-- Remove `console.log`, `debugger`, and `alert` statements from production code
-- Throw `Error` objects with descriptive messages, not strings or other values
-- Use `try-catch` blocks meaningfully - don't catch errors just to rethrow them
-- Prefer early returns over nested conditionals for error cases
-
-### Code Organization
-
-- Keep functions focused and under reasonable cognitive complexity limits
-- Extract complex conditions into well-named boolean variables
-- Use early returns to reduce nesting
-- Prefer simple conditionals over nested ternary operators
-- Group related code together and separate concerns
-
-### Security
-
-- Add `rel="noopener"` when using `target="_blank"` on links
-- Avoid `dangerouslySetInnerHTML` unless absolutely necessary
-- Don't use `eval()` or assign directly to `document.cookie`
-- Validate and sanitize user input
-
-### Performance
-
-- Avoid spread syntax in accumulators within loops
-- Use top-level regex literals instead of creating them in loops
-- Prefer specific imports over namespace imports
-- Avoid barrel files (index files that re-export everything)
-- Use proper image components (e.g., Next.js `<Image>`) over `<img>` tags
-
-### Framework-Specific Guidance
-
-**Next.js:**
-- Use Next.js `<Image>` component for images
-- Use `next/head` or App Router metadata API for head elements
-- Use Server Components for async data fetching instead of async Client Components
-
-**React 19+:**
-- Use ref as a prop instead of `React.forwardRef`
-
-**Solid/Svelte/Vue/Qwik:**
-- Use `class` and `for` attributes (not `className` or `htmlFor`)
-
----
+- Use installed specialist skills only when the confirmed stack and current task match them. Do not load specialist skills during session startup.
+- New feature: use the `grilling` skill before code. Ask only about unresolved behavior or consequential choices.
+- Architecture or system design: use the `codebase-design` skill.
+- Broad structural refactor: use the `improve-codebase-architecture` skill.
+- Read existing exports, callers, related tests, and shared utilities before adding code.
+- Prefer the smallest change that fits the current structure. Do not add a dependency or abstraction for hypothetical future use.
+- Match existing conventions. If a convention causes a concrete problem, explain it instead of silently creating another pattern.
+- Push back when a spec is unclear, incomplete, unworkable, or conflicts with the project's goals and constraints. Explain the problem, propose a workable option, and get confirmation before coding. Do not agree blindly.
+- Run the project's configured format, lint, type, test, and build checks that apply to the change.
+- State exactly what ran, what passed, and what was skipped. Do not claim completion when a required check failed or did not run.
+- Analyze time and space complexity only for nontrivial algorithms or loops where it can affect the design.
 
 ## Testing
 
-- Write assertions inside `it()` or `test()` blocks
-- Avoid done callbacks in async tests - use async/await instead
-- Don't use `.only` or `.skip` in committed code
-- Keep test suites reasonably flat - avoid excessive `describe` nesting
+- Put assertions inside test cases, not setup or grouping blocks.
+- Use the test tool's native asynchronous style. Do not mix callback completion with promises or async functions.
+- Do not commit focused, disabled, or skipped tests unless the user explicitly accepts and documents the reason.
+- Keep test suites shallow enough to make setup, behavior, and failures easy to trace.
 
-## When linters Can't Help
+## What automated checks cannot prove
 
-Linter will catch most issues automatically. Focus your attention on:
+Review these directly instead of assuming a passing tool proves them:
 
-1. **Business logic correctness** - Linters can't validate your algorithms
-2. **Meaningful naming** - Use descriptive names for functions, variables, and types
-3. **Architecture decisions** - Component structure, data flow, and API design
-4. **Edge cases** - Handle boundary conditions and error states
-5. **User experience** - Accessibility, performance, and usability considerations
-6. **Documentation** - Add comments for complex logic, but prefer self-documenting code
+1. Business and domain logic
+2. Clear and accurate naming
+3. Architecture and data flow
+4. Boundary conditions and failure cases
+5. Accessibility, performance, and usability for user-facing work
+6. Useful comments and documentation where the code alone is not clear
 
----
+## Security
 
-Most formatting and common issues are automatically fixed by running the linter script from `package.json`. Run it before committing to ensure compliance.
+- Treat external input as untrusted and validate it at the system boundary.
+- Do not execute untrusted text as code or inject raw content without validation and sanitization.
+- Use safe platform APIs instead of building commands, queries, markup, links, paths, or stored values from untrusted strings.
+- Do not expose secrets or sensitive values in code, logs, errors, tests, or documentation.
+- Preserve authentication, authorization, privacy, and access checks when changing protected behavior.
 
+## Interface and experience
 
-# Session Start Sequence
- 
-Read these files in order.
+Apply this section only to user-facing interface work.
 
-The session workflow is always the starting point. Identity files are read when they exist.
+- Communicate the purpose and primary action within 2 to 3 seconds of view.
+- Use progressive disclosure. Do not show every detail at once.
+- Make the interface usable without separate instructions.
+- Fix shared UI problems in the shared source that owns them, such as the design system, theme, shared UI module, or global styles. Do not hide a shared cause with one-off page overrides, inline styles, or local patches.
+- For nested rounded surfaces, set the outer radius to the inner radius plus the padding between them.
+- Animate state changes, navigation transitions, action feedback, and loading states.
+- Do not animate form submission while awaiting a response, destructive confirmations, or repeated micro-interactions after first use.
 
-1. `spec/sessions/README.md`: read this sessions routing file.
-2. The highest-numbered `spec/sessions/session-XX.md` file: read this numbered session file. Treat it as active unless it contains an explicit end marker such as `Session ended` or `Today's work is done`.
-3. `spec/sessions/HANDOFF.md`: read this handoff file if it exists and contains an active handoff.
-4. `spec/identity/README.md`: read this identity routing file if it exists. If it does not exist, continue.
-5. `spec/identity/project-dna.md`: read this project identity file if it exists. If it does not exist, continue.
-6. `spec/identity/brand-voice.md` and `spec/identity/TONE.md`: read each file if it exists when writing product copy or other identity-sensitive content. If a file does not exist, continue without it.
+## Written content
 
----
+When writing or editing interface copy, documentation, README files, Markdown, specs, guides, or other saved content, invoke the `unslop` skill.
 
-## Audience & UX Contract
- 
-Target visitors have short attention spans. Every feature must:
- 
-- Communicate intent within 2–3 seconds of view
-- Use progressive disclosure — don't show everything at once
-- Be operable without reading instructions
+Do not invoke `unslop` for chat replies, status updates, or other conversation unless the user explicitly asks.
 
----
+## Session continuity
 
-## Animation Rules
- 
-Animate: state changes, navigation transitions, feedback on actions (success/error), loading states.
-Never animate: form submission awaiting response, destructive confirmations, repeated micro-interactions after first use.
+Use the `handoff` skill when work pauses and another session needs to continue it.
 
----
-
-## Strict Engineering Rules
- 
-- New feature → invoke `grilling` skill first. No code until spec is confirmed.
-- Architecture/system design decisions → `codebase-design` skill.
-- Refactoring with broad structural impact → `improve-codebase-architecture` skill.
-- Outer radius = inner radius + padding (optical alignment).
-- Fix UI root causes in `app/globals.css` or `components/ui/*`, never one-off page overrides, inline styles, or per-component patches.
-- Reversible actions: local-first optimistic. Destructive mutations: explicit pending state + confirmation.
-- Read exports, callers, and shared utilities before adding any code. If existing structure is unclear, ask.
-- After every significant step: state what was done, what's verified, what's next. Do not continue from a state you can't describe, and do not do multiple chunks at once.
-- Match existing conventions even if you disagree. If a convention is harmful, surface it — don't fork it silently.
-- Push back when a spec is unclear, incomplete, or unworkable, or when a decision or an idea is not suitable to the project's goals and constraints. Ask for clarification, propose a solution, and get confirmation before coding, do not agree blindly.
-- "Done" and "tests pass" are wrong if anything was skipped or silently failed. Surface uncertainty, don't hide it.
-- Analyze the time and space complexity of the code you write. Identify the complexity of each significant algorithm or loop, justify your reasoning, and suggest optimizations where they would meaningfully improve complexity.
-
----
-
-## Writing and Reply Rules
-
-- Never use a metaphor, simile, or other figure of speech which you are used to seeing in print.
-- Never use a long word where a short one will do.
-- If it is possible to cut a word out, always cut it out.
-- Never use the passive where you can use the active.
-- Never use a foreign phrase, a scientific word, or a jargon word if you can think of an everyday English equivalent.
-- Break any of these rules sooner than say anything outright barbarous.
-- When writing anything to the interface or project (not user), invoke `unslop` skill to get rid of any AI slop, robotic tone, em dashes, or any other undesirable jargon in your writing. If you are unsure, ask for a second opinion.
-
----
-
-## Session Wrap-up
-
-Run `/wrap-up` skill.
+Run the `wrap-up` skill at the end of a work session. Record verified facts only.
