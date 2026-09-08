@@ -7,7 +7,7 @@ Read these files in order:
 1. `spec/sessions/README.md`: the sessions routing file.
 2. The highest-numbered `spec/sessions/session-XX.md` file: the current numbered session file. Treat it as active unless it contains an explicit end marker such as `Session ended` or `Today's work is done`.
 3. `spec/sessions/HANDOFF.md`: read this handoff file if it contains an active handoff.
-4. `spec/technical-context.md`: the short project fact file.
+4. `spec/codebase/technical-context.md`: the short project fact file.
 5. `spec/identity/README.md`: read this identity routing file if it exists.
 6. `spec/identity/project-dna.md`: read this project identity file if it exists.
 7. `spec/identity/brand-voice.md` and `spec/identity/TONE.md`: read each file if it exists when writing interface copy or other saved content that depends on product identity.
@@ -18,23 +18,23 @@ Do not ask whether to use identity. If `spec/identity/` does not exist, continue
 
 ## First startup
 
-If `spec/technical-context.md` still contains placeholders, determine which case applies.
+If `spec/codebase/technical-context.md` still contains placeholders, determine which case applies.
 
 For a new project with no application code or project manifest:
 
 1. Ask what the user wants to build and which constraints are fixed.
 2. Use the `grilling` skill to settle product, stack, and architecture choices that must be decided before code.
 3. Do not create application code until the user approves those choices.
-4. Fill `spec/technical-context.md` after the stack is approved.
+4. Fill `spec/codebase/technical-context.md` after the stack is approved.
 
 For an existing codebase:
 
 1. Read only the root README, project manifests, lockfiles, relevant configuration, top-level source directories, and application entry points.
-2. Fill `spec/technical-context.md` with verified facts.
+2. Fill `spec/codebase/technical-context.md` with verified facts.
 3. Do not change application code during startup unless the user asks.
-4. Stop discovery when the six fields in `spec/technical-context.md` are clear.
+4. Stop discovery when the six fields in `spec/codebase/technical-context.md` are clear.
 
-Do not scan dependency directories, generated files, build output, or version-control history during startup. Update `spec/technical-context.md` when one of its facts changes. Do not copy project facts into `AGENTS.md` or `.claude/CLAUDE.md`.
+Do not scan dependency directories, generated files, build output, or version-control history during startup. Update `spec/codebase/technical-context.md` when one of its facts changes. Do not copy project facts into `AGENTS.md` or `.claude/CLAUDE.md`.
 
 ## Current documentation
 

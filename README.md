@@ -40,11 +40,11 @@ Identity files are not design-system or implementation rules.
 
 ## Technical context
 
-`spec/technical-context.md` is a short project fact file that agents read at the start of each session. The agent fills it during the first startup and updates it only when one of its facts changes.
+`spec/codebase/technical-context.md` is a short project fact file that agents read at the start of each session. The agent fills it during the first startup and updates it only when one of its facts changes.
 
 It records one project sentence, whether code already exists, the main stack names, the main code paths, normal checks, and constraints. It does not copy dependency lists, exact versions, every project script, directory trees, or framework documentation.
 
-Project facts stay in `spec/technical-context.md`. Agents do not copy them into `AGENTS.md` or `.claude/CLAUDE.md`.
+Project facts stay in `spec/codebase/technical-context.md`. Agents do not copy them into `AGENTS.md` or `.claude/CLAUDE.md`.
 
 ## Reading order
 
@@ -54,7 +54,7 @@ At the start of a session, an agent should read these files in order:
 2. `spec/sessions/README.md`: the sessions routing file.
 3. The highest-numbered `spec/sessions/session-XX.md` file: the current numbered session file. Treat it as active unless it contains an explicit end marker such as `Session ended` or `Today's work is done`.
 4. `spec/sessions/HANDOFF.md`: the handoff file, if it exists and contains an active handoff.
-5. `spec/technical-context.md`: the short technical context file.
+5. `spec/codebase/technical-context.md`: the short technical context file.
 6. `spec/identity/README.md`: the identity routing file, if it exists. If it does not exist, continue without mentioning it.
 7. `spec/identity/project-dna.md`: the project identity file, if it exists. If it does not exist, continue.
 8. `spec/identity/brand-voice.md` and `spec/identity/TONE.md`: read each file if it exists when writing interface copy or other saved content that depends on product identity. If a file does not exist, continue without it.
