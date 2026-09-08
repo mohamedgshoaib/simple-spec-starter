@@ -1,101 +1,89 @@
 # simple-spec-starter
 
-A small starter for spec-driven development with AI agents.
+A small starter for spec-driven work with AI agents.
 
-It keeps product decisions, working context, and session notes in separate places so you can return later or hand the work to another agent.
+It keeps the session workflow, optional project identity, and agent rules in clear places. Use the workflow by itself, or add only the parts your project needs.
 
-## what this is
+## The core workflow
 
-This starter gives you a small set of folders and files:
+The required part of this repo is the `spec/sessions/` directory.
 
-- `spec/identity/` for durable product truth
-- `spec/sessions/` for short-lived working state
-- `.agents/skills/` and `.claude/skills/` for local skills you want agents to use
-- `AGENTS.md` and `.claude/CLAUDE.md` for repo behavior rules
+- `spec/sessions/README.md` is the sessions routing file.
+- `spec/sessions/session-XX.md` is a numbered session file. Replace `XX` with the session number.
+- `spec/sessions/HANDOFF.md` is the handoff file for the next agent.
+- `handoff` is a skill for writing the handoff file.
+- `wrap-up` is a skill for recording verified end-of-session facts.
+- `grilling` is a skill for testing a plan before new feature work starts.
+- `unslop` is a skill for cleaning up project-facing writing.
 
-That is the whole setup. There is no heavy framework, large planning system, or process for its own sake.
+These files and skills define the core workflow. The other included skills are project-specific additions.
 
-## how to use it
+## Choose your setup
 
-Copy the contents of this repo into the root of your existing project or a new project.
+### Workflow only
 
-Then:
+Use this setup if you want the session and agent workflow without the identity layer.
 
-1. Fill `spec/identity/project-dna.md`
-2. Fill `spec/identity/brand-voice.md`
-3. Fill `spec/identity/TONE.md`
-4. Keep `AGENTS.md` at the repo root and `.claude/CLAUDE.md` at the `.claude` directory root
-5. Start `spec/sessions/session-01.md` from the template when real work begins
-6. Keep `HANDOFF.md` empty or set to `No active handoff.` until a handoff is needed
+Keep `spec/sessions/`, the agent instruction files, and the `handoff`, `wrap-up`, `grilling`, and `unslop` skills. You do not need `spec/identity/`. Do not copy it, or remove it after copying the starter.
 
-Product truth lives in `identity`, active work lives in `sessions`, and agent behavior lives in the root instructions.
+Nothing in the sessions workflow depends on the identity files.
 
-## why work this way
+### Workflow with identity
 
-Projects often lose time when context gets muddy. Product ideas shift, old decisions disappear into chat history, and each new session starts by explaining the same things again.
+Use `spec/identity/` when you are:
 
-Spec-driven development helps by separating three kinds of truth:
+- building a website or product from scratch and need to define its identity
+- working on an existing website and need to document or reshape its identity
 
-- Long-term truth: what the product is, who it serves, and what it should never become
-- Session truth: what is finished, what is blocked, and which decisions are locked
-- Agent rules: how work should be done in this repo
+The identity files hold product facts, audience details, positioning, brand voice, and wording rules.
 
-This gives the agent fewer gaps to fill and helps it stay aligned with the product.
+They are not a design system and do not replace implementation rules.
 
-## a normal work session
+If `spec/identity/` exists, read `spec/identity/README.md` first. Then read the identity files that apply to the work.
 
-The flow is:
+## How to use it
 
-1. You open the repo and the agent reads `spec/identity/` first.
-2. It reads the latest open session in `spec/sessions/`.
-3. You say: "Add onboarding for first-time users."
-4. The agent checks whether this is a new feature. If it is, the agent writes the spec before coding.
-5. During the work, the session file records only verified outcomes such as "onboarding entry point added," "empty state copy approved," and "analytics event still blocked by missing event name."
-6. If you stop mid-session, `HANDOFF.md` tells the next agent what is in scope and what comes next.
+1. Copy the starter files into the root of an existing project or a new project.
+2. Keep the core session workflow.
+3. Keep `spec/identity/` only if the project needs product or brand identity guidance.
+4. Keep the specialist skills that match the project and remove the rest.
+5. Start a numbered session when real work begins.
+6. Use `handoff` when work pauses and `wrap-up` when the session ends.
 
-The next session can start with the current facts instead of reconstructing the past.
+## Reading order
 
-## two skills that matter most
+At the start of a session, an agent should read these files in order:
 
-- `handoff` writes a compact continuation note to `spec/sessions/HANDOFF.md` so a fresh agent can continue without replaying the whole chat.
-- `wrap-up` updates the numbered session log with verified facts only so the repo records what happened.
+1. `AGENTS.md` or `.claude/CLAUDE.md`: the agent instruction file.
+2. `spec/sessions/README.md`: the sessions routing file.
+3. The highest-numbered `spec/sessions/session-XX.md` file: the current numbered session file. Treat it as active unless it contains an explicit end marker such as `Session ended` or `Today's work is done`.
+4. `spec/sessions/HANDOFF.md`: the handoff file, if it exists and contains an active handoff.
+5. `spec/identity/README.md`: the identity routing file, if it exists. If it does not exist, continue.
+6. `spec/identity/project-dna.md`: the project identity file, if it exists. If it does not exist, continue.
+7. `spec/identity/brand-voice.md` and `spec/identity/TONE.md`: read each file if it exists when writing product copy or other identity-sensitive content. If a file does not exist, continue without it.
 
-Use `handoff` when work is paused and another session will pick it up. Use `wrap-up` at the end of a work session or before context gets compacted.
+The session workflow comes first. Identity files add product and brand context when the project needs them.
 
-## why these starter skills exist
+## Skills are a menu
 
-- `codebase-design` gives a shared vocabulary for interfaces, module depth, and testability.
-- `commit-message` writes a commit message that is factual, compact, and non-persuasive.
-- `deslop` cleans AI-shaped code that does not match the branch or codebase.
-- `grilling` sharpens a feature or design before code starts.
-- `handoff` preserves only the next agent's continuation context.
-- `improve-codebase-architecture` finds architectural friction and turns it into concrete refactor candidates.
-- `make-interfaces-feel-better` gives design principles for polished interfaces.
-- `no-use-effect` enforces a stricter React posture and replaces lazy effect usage with better patterns.
-- `typescript-expert` is the fallback specialist for hard TypeScript and JavaScript problems.
-- `unslop` cleans AI-shaped writing so text sounds normal.
-- `vercel-react-best-practices` keeps React and Next.js work aligned with strong performance defaults.
-- `wrap-up` keeps session logs factual, compact, and usable.
-- `write-project-readme` writes a project README that is factual and reflects the project's current state.
+The `.agents/skills/` and `.claude/skills/` directories contain local skills. Each skill is independent. Keep the skills that match the project and remove the ones that do not.
 
-## when to use this
+For example:
 
-Use this starter when:
+- `vercel-react-best-practices` is a React and Next.js performance skill.
+- `no-use-effect` is a React-specific skill.
+- `make-interfaces-feel-better` is a UI design and interaction skill.
+- `typescript-expert` is a TypeScript and JavaScript skill.
+- `write-project-readme` is a README research and writing skill.
+- `codebase-design` is a module and architecture skill.
+- `commit-message` is a commit message writing skill.
 
-- you work with AI agents regularly
-- the project will span more than a few sessions
-- product direction matters as much as code output
-- you want continuity without adding process for its own sake
+If you use both `.agents/skills/` and `.claude/skills/`, remove unused skills from both directories. Before removing a skill, check `AGENTS.md` and `.claude/CLAUDE.md`. If an instruction names a skill, keep that skill for the work covered by the instruction or update the instruction too.
 
-## when not to use this
+## When to use this
 
-Skip it when:
+Use this starter when work will span more than one session, involve more than one agent, or need product decisions to stay available after the chat ends.
 
-- you are making a throwaway script
-- the project is tiny and will be finished in one sitting
-- nobody needs handoff, continuity, or product-level thinking
-- a full PRD system already exists and this would duplicate it
+Skip it for a throwaway script or a project that already has a workflow for session context and handoffs.
 
-## final note
-
-This starter is intentionally small. If a file does not make future work clearer or easier to resume, it probably does not belong here.
+This starter is small on purpose. Keep the workflow. Add identity files and specialist skills only when they help.

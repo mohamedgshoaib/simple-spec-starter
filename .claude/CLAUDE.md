@@ -124,10 +124,16 @@ Most formatting and common issues are automatically fixed by running the linter 
 
 # Session Start Sequence
  
-Read in order, stop if a blocker is found:
- 
-1. `spec/identity/README.md` — routing for product DNA and brand voice, then `spec/identity/project-dna.md`
-2. `spec/sessions/README.md` — routing for session artifacts, then the highest-numbered `session-XX.md` file in `spec/sessions/`; treat the latest session as still active unless it contains an explicit end marker like `Session ended` or `Today's work is done`
+Read these files in order.
+
+The session workflow is always the starting point. Identity files are read when they exist.
+
+1. `spec/sessions/README.md`: read this sessions routing file.
+2. The highest-numbered `spec/sessions/session-XX.md` file: read this numbered session file. Treat it as active unless it contains an explicit end marker such as `Session ended` or `Today's work is done`.
+3. `spec/sessions/HANDOFF.md`: read this handoff file if it exists and contains an active handoff.
+4. `spec/identity/README.md`: read this identity routing file if it exists. If it does not exist, continue.
+5. `spec/identity/project-dna.md`: read this project identity file if it exists. If it does not exist, continue.
+6. `spec/identity/brand-voice.md` and `spec/identity/TONE.md`: read each file if it exists when writing product copy or other identity-sensitive content. If a file does not exist, continue without it.
 
 ---
 
