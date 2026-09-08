@@ -1,11 +1,17 @@
 ---
 name: unslop
-description: Cut AI tells from any writing. Must always apply.
+description: Remove AI tells from interface copy, documentation, README files, Markdown, and other saved content. Use when writing or editing content that will be kept or shipped, or when the user explicitly invokes this skill. Do not use for chat replies.
 ---
 
 # Unslop
 
-Edit text to remove AI patterns and add human voice.
+Edit saved content to remove AI patterns and add human voice.
+
+## Scope
+
+Use this skill for interface copy, documentation, README files, Markdown, specs, guides, and other content that will be kept or shipped.
+
+Do not invoke it for chat replies, status updates, or other conversation unless the user explicitly asks.
 
 ## Process
 
